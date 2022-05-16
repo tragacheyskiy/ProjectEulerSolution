@@ -1,5 +1,6 @@
 ﻿using ProjectEulerSolution.Problems;
 using ProjectEulerSolution.Problems._1_100._1_10;
+using ProjectEulerSolution.Problems._1_100._11_20;
 
 internal class Program
 {
@@ -13,6 +14,6 @@ internal class Program
 
     private static IProblem CreateProblem()
     {
-        return new Problem3();
+        return new Problem17();
     }
 }
