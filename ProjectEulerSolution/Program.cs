@@ -15,6 +15,6 @@ internal class Program
 
     private static IProblem CreateProblem()
     {
-        return new Problem1();
+        return new Problem2();
     }
 }
