@@ -9,10 +9,12 @@
 
   <ItemGroup>
     <None Remove="Resources\Problem22\p022_names.txt" />
+    <None Remove="Resources\Problem8\1000_digit_number.txt" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Problem22\p022_names.txt" />
+    <EmbeddedResource Include="Resources\Problem8\1000_digit_number.txt" />
   </ItemGroup>
 
 </Project>
