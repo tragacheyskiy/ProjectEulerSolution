@@ -1,4 +1,4 @@
-﻿namespace ProjectEulerSolution.Problems._1_100._1_10;
+﻿namespace ProjectEulerSolution.Problems._1_99._1_9;
 
 // https://projecteuler.net/problem=5
 // 2520 is the smallest number that can be divided by each of the numbers from 1 to 10 without any remainder.

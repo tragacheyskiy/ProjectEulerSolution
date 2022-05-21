@@ -1,4 +1,4 @@
-﻿namespace ProjectEulerSolution.Problems._1_100._21_30;
+﻿namespace ProjectEulerSolution.Problems._1_99._21_30;
 
 // https://projecteuler.net/problem=21
 // Let d(n) be defined as the sum of proper divisors of n(numbers less than n which divide evenly into n).

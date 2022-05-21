@@ -1,4 +1,4 @@
-﻿namespace ProjectEulerSolution.Problems._1_100._1_10;
+﻿namespace ProjectEulerSolution.Problems._1_99._1_9;
 
 // https://projecteuler.net/problem=6
 // The sum of the squares of the first ten natural numbers is 1^2 + 2^2 + ... + 10^2 = 385.
