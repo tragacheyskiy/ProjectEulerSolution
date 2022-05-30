@@ -11,13 +11,13 @@ internal sealed class Problem11 : IProblem
 {
     private class SequenceProduct
     {
-        public SequenceProduct(int[] sequence, int product)
+        public SequenceProduct(byte[] sequence, int product)
         {
             Sequence = sequence;
             Product = product;
         }
 
-        public int[] Sequence { get; }
+        public byte[] Sequence { get; }
         public int Product { get; }
     }
 
@@ -25,7 +25,7 @@ internal sealed class Problem11 : IProblem
 
     public void Solve()
     {
-        int[,] grid = GetGrid();
+        byte[,] grid = GetGrid();
 
         SequenceProduct result = GetGreatestSequenceProduct(grid);
 
@@ -34,10 +34,10 @@ internal sealed class Problem11 : IProblem
         Console.WriteLine($"{sequenceString} = {result.Product}");
     }
 
-    private SequenceProduct GetGreatestSequenceProduct(int[,] grid)
+    private SequenceProduct GetGreatestSequenceProduct(byte[,] grid)
     {
         int max = grid.GetLength(0);
-        ReadOnlySpan<int> sequence = default;
+        ReadOnlySpan<byte> sequence = default;
         int greatestSequenceProduct = 0;
 
         for (int i = 0; i < max; i++)
@@ -47,7 +47,7 @@ internal sealed class Problem11 : IProblem
                 if (grid[i, j] == 0)
                     continue;
 
-                int[] supposedSequence = GetHorizontalLine(grid, i, j);
+                byte[] supposedSequence = GetHorizontalLine(grid, i, j);
                 CheckSequence(supposedSequence, ref sequence, ref greatestSequenceProduct);
 
                 if (i > max - SequenceLength)
@@ -71,8 +71,8 @@ internal sealed class Problem11 : IProblem
     }
 
     private void CheckSequence(
-        ReadOnlySpan<int> supposedSequence,
-        ref ReadOnlySpan<int> sequenceOfGreatestProduct,
+        ReadOnlySpan<byte> supposedSequence,
+        ref ReadOnlySpan<byte> sequenceOfGreatestProduct,
         ref int greatestSequenceProduct)
     {
         int sequenceProduct = GetSequenceProduct(supposedSequence);
@@ -84,9 +84,9 @@ internal sealed class Problem11 : IProblem
         }
     }
 
-    private int[] GetHorizontalLine(int[,] grid, int row, int column)
+    private byte[] GetHorizontalLine(byte[,] grid, int row, int column)
     {
-        int[] result = new int[SequenceLength];
+        byte[] result = new byte[SequenceLength];
 
         for (int i = 0; i < SequenceLength; i++)
         {
@@ -96,9 +96,9 @@ internal sealed class Problem11 : IProblem
         return result;
     }
 
-    private int[] GetVerticalLine(int[,] grid, int row, int column)
+    private byte[] GetVerticalLine(byte[,] grid, int row, int column)
     {
-        int[] result = new int[SequenceLength];
+        byte[] result = new byte[SequenceLength];
 
         for (int i = 0; i < SequenceLength; i++)
         {
@@ -108,9 +108,9 @@ internal sealed class Problem11 : IProblem
         return result;
     }
 
-    private int[] GetRightDiagonal(int[,] grid, int row, int column)
+    private byte[] GetRightDiagonal(byte[,] grid, int row, int column)
     {
-        int[] result = new int[SequenceLength];
+        byte[] result = new byte[SequenceLength];
 
         for (int i = 0; i < SequenceLength; i++)
         {
@@ -120,9 +120,9 @@ internal sealed class Problem11 : IProblem
         return result;
     }
 
-    private int[] GetLeftDiagonal(int[,] grid, int row, int column)
+    private byte[] GetLeftDiagonal(byte[,] grid, int row, int column)
     {
-        int[] result = new int[SequenceLength];
+        byte[] result = new byte[SequenceLength];
 
         for (int i = 0; i < SequenceLength; i++)
         {
@@ -132,11 +132,11 @@ internal sealed class Problem11 : IProblem
         return result;
     }
 
-    private int GetSequenceProduct(ReadOnlySpan<int> sequence)
+    private int GetSequenceProduct(ReadOnlySpan<byte> sequence)
     {
         int result = 1;
 
-        foreach (int number in sequence)
+        foreach (byte number in sequence)
         {
             result *= number;
         }
@@ -144,14 +144,14 @@ internal sealed class Problem11 : IProblem
         return result;
     }
 
-    private int[,] GetGrid()
+    private byte[,] GetGrid()
     {
         using Stream? stream = Assembly
             .GetExecutingAssembly()
             .GetManifestResourceStream(ResourceNames.Problem11.Name);
 
         if (stream == null)
-            return new int[0, 0];
+            return new byte[0, 0];
 
         string result;
 
@@ -161,7 +161,7 @@ internal sealed class Problem11 : IProblem
         };
 
         string[] rows = result.Split('\n');
-        int[,] grid = new int[rows.Length, rows.Length];
+        byte[,] grid = new byte[rows.Length, rows.Length];
 
         for (int i = 0; i < rows.Length; i++)
         {
@@ -169,7 +169,7 @@ internal sealed class Problem11 : IProblem
 
             foreach (string element in rows[i].Split(' '))
             {
-                grid[i, j++] = int.Parse(element);
+                grid[i, j++] = byte.Parse(element);
             }
         }
 

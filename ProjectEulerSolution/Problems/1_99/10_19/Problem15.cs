@@ -5,7 +5,7 @@
 // How many such routes are there through a 20×20 grid?
 internal sealed class Problem15 : IProblem
 {
-    private record struct Index(int Row, int Column);
+    private readonly record struct Index(int Row, int Column);
 
     private const int GridSize = 20;
 
