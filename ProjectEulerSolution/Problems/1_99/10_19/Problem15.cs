@@ -5,16 +5,18 @@
 // How many such routes are there through a 20×20 grid?
 internal sealed class Problem15 : IProblem
 {
+    private record struct Index(int Row, int Column);
+
     private const int GridSize = 20;
 
     public void Solve()
     {
-        long result = GetRoutesCountNew(GridSize);
+        long result = GetRoutesCount(GridSize);
 
         Console.WriteLine($"Total routes of {GridSize}x{GridSize} grid: {result}");
     }
 
-    private long GetRoutesCountNew(int gridSize)
+    private long GetRoutesCount(int gridSize)
     {
         double divisor = GetFactorial(gridSize);
 
@@ -33,5 +35,39 @@ internal sealed class Problem15 : IProblem
         }
 
         return result;
+    }
+
+    private long GetRoutesCountAlternative(int gridSize)
+    {
+        IDictionary<Index, long> cache = new Dictionary<Index, long>();
+
+        return GetRoutesCountRecursive(0, 0);
+
+        long GetRoutesCountRecursive(int row, int column)
+        {
+            Index index = new Index(row, column);
+
+            if (cache.ContainsKey(index))
+                return cache[index];
+
+            if (row == gridSize && column == gridSize)
+                return 1;
+
+            if (!(row < gridSize))
+            {
+                return GetRoutesCountRecursive(row, column + 1);
+            }
+
+            if (!(column < gridSize))
+            {
+                return GetRoutesCountRecursive(row + 1, column);
+            }
+
+            long result = GetRoutesCountRecursive(row + 1, column) + GetRoutesCountRecursive(row, column + 1);
+
+            cache[index] = result;
+
+            return result;
+        }
     }
 }
