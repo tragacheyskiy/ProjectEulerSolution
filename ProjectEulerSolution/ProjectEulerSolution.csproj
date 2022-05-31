@@ -10,6 +10,7 @@
   <ItemGroup>
     <None Remove="Resources\Problem11\grid_20x20.txt" />
     <None Remove="Resources\Problem13\50_digit_numbers.txt" />
+    <None Remove="Resources\Problem18\triangle.txt" />
     <None Remove="Resources\Problem22\p022_names.txt" />
     <None Remove="Resources\Problem8\1000_digit_number.txt" />
   </ItemGroup>
@@ -17,6 +18,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\Problem11\grid_20x20.txt" />
     <EmbeddedResource Include="Resources\Problem13\50_digit_numbers.txt" />
+    <EmbeddedResource Include="Resources\Problem18\triangle.txt" />
     <EmbeddedResource Include="Resources\Problem22\p022_names.txt" />
     <EmbeddedResource Include="Resources\Problem8\1000_digit_number.txt" />
   </ItemGroup>

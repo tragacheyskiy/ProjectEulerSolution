@@ -19,6 +19,11 @@ internal static class ResourceNames
         public static string Name { get; } = $"{Base}.{nameof(Problem13)}.50_digit_numbers.txt";
     }
 
+    public static class Problem18
+    {
+        public static string Name { get; } = $"{Base}.{nameof(Problem18)}.triangle.txt";
+    }
+
     public static class Problem22
     {
         public static string Name { get; } = $"{Base}.{nameof(Problem22)}.p022_names.txt";
