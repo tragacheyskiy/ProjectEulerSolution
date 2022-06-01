@@ -50,7 +50,7 @@ internal sealed class Problem12 : IProblem
         int max = (int)MathF.Sqrt(number);
         int result = max * max == number ? 3 : 2;
 
-        for (int i = 2; i < max; i++)
+        for (int i = 2; i <= max; i++)
         {
             if (number % i == 0)
             {
