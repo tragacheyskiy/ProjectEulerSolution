@@ -15,6 +15,6 @@ internal class Program
 
     private static IProblem CreateProblem()
     {
-        return new BenchmarkDecorator(new Problem20());
+        return new BenchmarkDecorator(new Problem23());
     }
 }
