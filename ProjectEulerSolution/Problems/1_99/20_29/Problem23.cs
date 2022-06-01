@@ -39,15 +39,15 @@ internal sealed class Problem23 : IProblem
         return sum;
     }
 
-    private HashSet<int> GetNumbersConsistingOfSum(int[] abundantNumbes)
+    private HashSet<int> GetNumbersConsistingOfSum(int[] abundantNumbers)
     {
         var result = new HashSet<int>();
 
-        for (int i = 0; i < abundantNumbes.Length; i++)
+        for (int i = 0; i < abundantNumbers.Length; i++)
         {
-            for (int j = i; j < abundantNumbes.Length; j++)
+            for (int j = i; j < abundantNumbers.Length; j++)
             {
-                int sum = abundantNumbes[i] + abundantNumbes[j];
+                int sum = abundantNumbers[i] + abundantNumbers[j];
 
                 if (sum > LimitNumber)
                     break;
