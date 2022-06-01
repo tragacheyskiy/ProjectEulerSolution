@@ -1,4 +1,6 @@
-﻿namespace ProjectEulerSolution.Problems._1_99._10_19;
+﻿using System.Numerics;
+
+namespace ProjectEulerSolution.Problems._1_99._10_19;
 
 // https://projecteuler.net/problem=15
 // Starting in the top left corner of a 2×2 grid, and only being able to move to the right and down, there are exactly 6 routes to the bottom right corner.
@@ -11,23 +13,23 @@ internal sealed class Problem15 : IProblem
 
     public void Solve()
     {
-        long result = GetRoutesCount(GridSize);
+        BigInteger result = GetRoutesCount(GridSize);
 
         Console.WriteLine($"Total routes of {GridSize}x{GridSize} grid: {result}");
     }
 
-    private long GetRoutesCount(int gridSize)
+    private BigInteger GetRoutesCount(int gridSize)
     {
-        double divisor = GetFactorial(gridSize);
+        BigInteger divisor = GetFactorial(gridSize);
 
-        double result = GetFactorial(2 * gridSize) / (divisor * divisor);
+        BigInteger result = GetFactorial(2 * gridSize) / (divisor * divisor);
 
-        return (long)result;
+        return result;
     }
 
-    private double GetFactorial(int number)
+    private BigInteger GetFactorial(int number)
     {
-        double result = 1;
+        BigInteger result = 1;
 
         while (number > 0)
         {
