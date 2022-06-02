@@ -14,25 +14,24 @@ internal sealed class Problem24 : IProblem
 
     public void Solve()
     {
-        string[] permutations = GetPermutations(Set);
+        string permutation = GetPermutation(Set, Index);
 
-        Console.WriteLine($"{Index}-th lexicographic permutation of {Set}: {permutations[Index - 1]}");
+        Console.WriteLine($"{Index}-th lexicographic permutation of ({Set}): {permutation}");
     }
 
-    private string[] GetPermutations(string set)
+    private string GetPermutation(string set, int index)
     {
-        int k = 0;
+        int i = 1;
         char[] values = set.ToCharArray();
 
-        string[] permutations = new string[GetFactorial(set.Length)];
-        permutations[k++] = set;
-
-        while (NextPermutation(values))
+        do
         {
-            permutations[k++] = new string(values);
+            if (i++ == index)
+                break;
         }
+        while (NextPermutation(values));
 
-        return permutations;
+        return new string(values);
     }
 
     private bool NextPermutation(char[] values)
@@ -70,16 +69,4 @@ internal sealed class Problem24 : IProblem
     }
 
     private void SwapValues(ref char x, ref char y) => (y, x) = (x, y);
-
-    private long GetFactorial(int number)
-    {
-        long result = 1;
-
-        while (number > 0)
-        {
-            result *= number--;
-        }
-
-        return result;
-    }
 }
