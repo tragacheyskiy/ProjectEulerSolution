@@ -33,7 +33,7 @@ internal sealed class Problem7 : IProblem
 
     private bool IsPrimeNumber(int number)
     {
-        if (number == 0 || number == 1)
+        if (number <= 0 || number == 1)
             return false;
 
         int max = (int)MathF.Sqrt(number);
